@@ -1,6 +1,6 @@
 name: fake_store_api_package
 description: "Paquete Flutter/Dart para interactuar fácilmente con la Fake Store API. Incluye métodos CRUD y procesamiento de datos."
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/bruno8311/fake_store_api_package
 
 environment:
