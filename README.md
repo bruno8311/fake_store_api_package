@@ -1,39 +1,87 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# Fake Store API Package
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/tools/pub/writing-package-pages).
+Paquete Flutter/Dart para interactuar fácilmente con la Fake Store API. Permite operaciones CRUD sobre productos, usuarios y carritos, procesando los datos obtenidos de la API.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/to/develop-packages).
--->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+## Instalacion
 
-## Features
+1. Abre el archivo `pubspec.yaml` de tu proyecto.
+2. Agrega la siguiente dependencia:
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
-```dart
-const like = 'sample';
+```yaml
+dependencies:
+	fake_store_api_package:
+		git:
+			url: https://github.com/bruno8311/fake_store_api_package.git
 ```
 
-## Additional information
+3. Guarda el archivo y ejecuta en la terminal:
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+```bash
+flutter pub get
+```
+
+## Uso basico
+
+
+Importa el paquete y utiliza la clase principal:
+
+```dart
+import 'package:fake_store_api_package/fake_store_api_package.dart';
+
+void main() async {
+	final FakeStoreApiPackage apifakeStoreApi = FakeStoreApiPackage();
+	final result = await apifakeStoreApi.getProducts();
+	result.fold(
+		(error) => print('Error: $error'),
+		(products) => products.forEach((p) => print(p.title)),
+	);
+}
+```
+
+
+## Flutter Example
+
+El paquete incluye una carpeta `example` con una aplicación Flutter lista para usar:
+
+1. Ve a la carpeta `example`:
+	```bash
+	cd example
+	```
+2. Instala las dependencias:
+	```bash
+	flutter pub get
+	```
+3. Ejecuta la aplicación:
+	```bash
+	flutter run
+	```
+
+La pantalla principal muestra la lectura de la Fake Store API y la visualización de los productos obtenidos.
+
+## Metodos disponibles
+
+- Products: `getProducts`, `getProduct`, `createProduct`, `updateProduct`, `deleteProduct`
+- Users: `getUsers`, `getUser`, `createUser`, `updateUser`, `deleteUser`
+- Carts: `getCarts`, `getCart`, `createCart`, `updateCart`, `deleteCart`
+
+## License
+
+MIT
+
+
+## ¿Qué puede hacer tu paquete?
+
+- Realizar operaciones CRUD (crear, leer, actualizar, eliminar) sobre productos, usuarios y carritos usando la Fake Store API.
+- Procesar y mapear los datos obtenidos de la API.
+- Ejemplo Flutter incluido para mostrar cómo listar productos y visualizar los datos en pantalla.
+- Maneja los errores en caso de que las solicitudes a la API fallen, devolviendo un string con el codigo del error.
+
+## Primeros pasos
+
+TODO: Enumera los requisitos previos y proporciona o apunta a información sobre cómo empezar a usar el paquete.
+
+## Uso
+
+Dentro de la carpeta `/example` se muestra el uso del packete para listar los productos de la Fake Store Api.
+
