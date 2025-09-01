@@ -24,17 +24,19 @@ flutter pub get
 ## Uso basico
 
 
-Importa el paquete y utiliza la clase principal:
+
+Importa el paquete y la entidad de dominio que necesites (por ejemplo, `Product`):
 
 ```dart
 import 'package:fake_store_api_package/fake_store_api_package.dart';
+import 'package:fake_store_api_package/domain/entities/product.dart';
 
 void main() async {
 	final FakeStoreApiPackage apifakeStoreApi = FakeStoreApiPackage();
 	final result = await apifakeStoreApi.getProducts();
 	result.fold(
 		(error) => print('Error: $error'),
-		(products) => products.forEach((p) => print(p.title)),
+		(products) => products.forEach((Product p) => print(p.title)),
 	);
 }
 ```
@@ -77,11 +79,4 @@ MIT
 - Ejemplo Flutter incluido para mostrar cómo listar productos y visualizar los datos en pantalla.
 - Maneja los errores en caso de que las solicitudes a la API fallen, devolviendo un string con el codigo del error.
 
-## Primeros pasos
-
-TODO: Enumera los requisitos previos y proporciona o apunta a información sobre cómo empezar a usar el paquete.
-
-## Uso
-
-Dentro de la carpeta `/example` se muestra el uso del packete para listar los productos de la Fake Store Api.
 
