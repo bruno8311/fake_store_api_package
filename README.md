@@ -27,7 +27,7 @@ void main() async {
 }
 ```
 
-## Flutter Example
+## Pasos para ejectutar el ejemplo en Flutter:
 
 El paquete incluye una carpeta `example` con una aplicación Flutter lista para usar:
 
