@@ -1,6 +1,5 @@
-## 0.0.1
+## 0.0.3
 
-* Primer lanzamiento.
 * Paquete para interactuar con la Fake Store API usando Dart/Flutter.
 * Métodos CRUD para productos, usuarios y carritos.
 * Ejemplo Flutter incluido.

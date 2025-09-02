@@ -1,11 +1,9 @@
-
 import 'dart:convert';
 import 'package:dartz/dartz.dart';
 import '../models/cart_model.dart';
 import 'package:http/http.dart' as http;
 
 class CartApi {
-
   static const String baseUrl = 'https://fakestoreapi.com/carts';
 
   // Obtener todos los carritos
@@ -14,7 +12,9 @@ class CartApi {
       final response = await http.get(Uri.parse(baseUrl));
       if (response.statusCode == 200) {
         final List<dynamic> data = jsonDecode(response.body);
-        final carts = data.map((e) => CartItemModel.fromJson(Map<String, dynamic>.from(e))).toList();
+        final carts = data
+            .map((e) => CartItemModel.fromJson(Map<String, dynamic>.from(e)))
+            .toList();
         return Right(carts);
       } else {
         return Left('Error en listar carritos: ${response.statusCode}');
@@ -93,7 +93,4 @@ class CartApi {
       return Left('Exception: $e');
     }
   }
-
-
-
 }

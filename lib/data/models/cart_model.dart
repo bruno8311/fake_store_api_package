@@ -3,10 +3,7 @@ class CartProduct {
   final int productId;
   final int quantity;
 
-  const CartProduct({
-    required this.productId,
-    required this.quantity,
-  });
+  const CartProduct({required this.productId, required this.quantity});
 }
 
 class CartItemModel {
@@ -20,27 +17,33 @@ class CartItemModel {
     required this.products,
   });
 
-   factory CartItemModel.fromJson(Map<String, dynamic> json) {
-     return CartItemModel(
-       id: json['id'],
-       userId: json['userId'],
-       products: (json['products'] as List)
-         .map((product) => CartProduct(
-           productId: product['productId'],
-           quantity: product['quantity'],
-         ))
-         .toList(),
-     );
-   }
+  factory CartItemModel.fromJson(Map<String, dynamic> json) {
+    return CartItemModel(
+      id: json['id'],
+      userId: json['userId'],
+      products: (json['products'] as List)
+          .map(
+            (product) => CartProduct(
+              productId: product['productId'],
+              quantity: product['quantity'],
+            ),
+          )
+          .toList(),
+    );
+  }
 
   Map<String, dynamic> toJson() {
     return {
       'id': id,
       'userId': userId,
-      'products': products.map((product) => {
-        'productId': product.productId,
-        'quantity': product.quantity,
-      }).toList(),
+      'products': products
+          .map(
+            (product) => {
+              'productId': product.productId,
+              'quantity': product.quantity,
+            },
+          )
+          .toList(),
     };
   }
 }

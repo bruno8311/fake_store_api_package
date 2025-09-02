@@ -7,14 +7,14 @@ class ProductApi {
   static const String localKey = 'products';
   static const String baseUrl = 'https://fakestoreapi.com/products';
 
-
-
   Future<Either<String, List<ProductItemModel>>> fetchProducts() async {
     try {
       final response = await http.get(Uri.parse(baseUrl));
-      if(response.statusCode == 200) {
+      if (response.statusCode == 200) {
         final List<dynamic> data = jsonDecode(response.body);
-        final products = data.map((e) => ProductItemModel.fromJson(Map<String, dynamic>.from(e))).toList();
+        final products = data
+            .map((e) => ProductItemModel.fromJson(Map<String, dynamic>.from(e)))
+            .toList();
         return Right(products);
       } else {
         return Left('Error en listar productos: ${response.statusCode}');
@@ -29,7 +29,9 @@ class ProductApi {
       final response = await http.get(Uri.parse('$baseUrl/$id'));
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
-        return Right(ProductItemModel.fromJson(Map<String, dynamic>.from(data)));
+        return Right(
+          ProductItemModel.fromJson(Map<String, dynamic>.from(data)),
+        );
       } else {
         return Left('Error en obtener producto: ${response.statusCode}');
       }
@@ -44,7 +46,7 @@ class ProductApi {
       final response = await http.post(
         Uri.parse(baseUrl),
         headers: {'Content-Type': 'application/json'},
-        body: bodyRequest
+        body: bodyRequest,
       );
       if (response.statusCode == 201) {
         return Right(null);

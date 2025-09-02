@@ -2,28 +2,11 @@
 
 Paquete Flutter/Dart para interactuar fácilmente con la Fake Store API. Permite operaciones CRUD sobre productos, usuarios y carritos, procesando los datos obtenidos de la API.
 
+## Getting started
 
-## Instalacion
+fake_store_api_package: 0.0.3
 
-1. Abre el archivo `pubspec.yaml` de tu proyecto.
-2. Agrega la siguiente dependencia:
-
-```yaml
-dependencies:
-	fake_store_api_package:
-		git:
-			url: https://github.com/bruno8311/fake_store_api_package.git
-```
-
-3. Guarda el archivo y ejecuta en la terminal:
-
-```bash
-flutter pub get
-```
-
-## Uso basico
-
-
+## Usage
 
 Importa el paquete y la entidad de dominio que necesites (por ejemplo, `Product`):
 
@@ -40,6 +23,8 @@ void main() async {
 	);
 }
 ```
+
+En este ejemplo se uso el método getProducts() para mostrar los productos de la Fake Store API.
 
 
 ## Flutter Example
@@ -61,18 +46,14 @@ El paquete incluye una carpeta `example` con una aplicación Flutter lista para 
 
 La pantalla principal muestra la lectura de la Fake Store API y la visualización de los productos obtenidos.
 
-## Metodos disponibles
+## Available methods
 
 - Products: `getProducts`, `getProduct`, `createProduct`, `updateProduct`, `deleteProduct`
 - Users: `getUsers`, `getUser`, `createUser`, `updateUser`, `deleteUser`
 - Carts: `getCarts`, `getCart`, `createCart`, `updateCart`, `deleteCart`
 
-## License
 
-MIT
-
-
-## ¿Qué puede hacer tu paquete?
+## What can your package do?
 
 - Realizar operaciones CRUD (crear, leer, actualizar, eliminar) sobre productos, usuarios y carritos usando la Fake Store API.
 - Procesar y mapear los datos obtenidos de la API.

@@ -11,10 +11,6 @@ extension UserMapper on User {
 }
 
 extension UserItemModelMapper on UserItemModel {
-  User toEntity() => User(
-    id: id,
-    username: username,
-    email: email,
-    password: password,
-  );
+  User toEntity() =>
+      User(id: id, username: username, email: email, password: password);
 }
