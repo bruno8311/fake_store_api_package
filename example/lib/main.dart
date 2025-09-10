@@ -1,4 +1,3 @@
-
 import 'package:fake_store_api_package/fake_store_api_package.dart';
 import 'package:fake_store_api_package/domain/entities/product.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +9,9 @@ void main() async {
   final result = await api.getProducts();
   result.fold(
     (error) => print('Error: $error'), // Manejo de errores
-    (products) => products.forEach((Product p) => print(p.title)), // Visualización de productos en consola
+    (products) => products.forEach(
+      (Product p) => print(p.title),
+    ), // Visualización de productos en consola
   );
 
   // Para la visualización de la lista de productos, ejecutar la app normalmente

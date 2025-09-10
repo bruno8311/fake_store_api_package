@@ -3,13 +3,13 @@ import 'package:fake_store_api_package/domain/entities/product.dart';
 import 'package:flutter/material.dart';
 import 'package:fake_store_api_package/fake_store_api_package.dart';
 
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
+
 class _HomeScreenState extends State<HomeScreen> {
   final FakeStoreApiPackage apifakeStoreApi = FakeStoreApiPackage();
   List<Product> products = [];
@@ -48,13 +48,9 @@ class _HomeScreenState extends State<HomeScreen> {
         itemCount: products.length,
         itemBuilder: (context, int index) {
           final product = products[index];
-          return ProductTile(
-            product: product,
-            index: index,
-          );
+          return ProductTile(product: product, index: index);
         },
       ),
     );
   }
-
 }

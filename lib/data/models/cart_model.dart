@@ -1,10 +1,4 @@
-// Modelo para producto en el carrito
-class CartProduct {
-  final int productId;
-  final int quantity;
-
-  const CartProduct({required this.productId, required this.quantity});
-}
+import 'package:fake_store_api_package/domain/entities/cart_product.dart';
 
 class CartItemModel {
   final int id;

@@ -1,4 +1,4 @@
-import '../../data/models/cart_model.dart';
+import 'package:fake_store_api_package/domain/entities/cart_product.dart';
 
 class Cart {
   final int id;

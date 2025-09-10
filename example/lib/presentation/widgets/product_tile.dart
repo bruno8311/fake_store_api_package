@@ -5,11 +5,7 @@ class ProductTile extends StatelessWidget {
   final Product product;
   final int index;
 
-  const ProductTile({
-    super.key,
-    required this.product,
-    required this.index,
-  });
+  const ProductTile({super.key, required this.product, required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +53,11 @@ class ProductTile extends StatelessWidget {
               const SizedBox(height: 4),
               Text(
                 'Precio: \$${product.price}',
-                style: const TextStyle(fontSize: 15, color: Colors.green, fontWeight: FontWeight.w600),
+                style: const TextStyle(
+                  fontSize: 15,
+                  color: Colors.green,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ],
           ),
@@ -83,7 +83,11 @@ class ProductTile extends StatelessWidget {
                 color: Colors.redAccent,
                 borderRadius: BorderRadius.circular(8),
               ),
-              child: const Icon(Icons.broken_image, color: Colors.white, size: 32),
+              child: const Icon(
+                Icons.broken_image,
+                color: Colors.white,
+                size: 32,
+              ),
             );
           },
         ),
