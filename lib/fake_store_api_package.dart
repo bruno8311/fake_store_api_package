@@ -1,11 +1,14 @@
 import 'package:dartz/dartz.dart';
 import 'package:fake_store_api_package/data/datasources/cart_api.dart';
+import 'package:fake_store_api_package/data/datasources/login_api.dart';
 import 'package:fake_store_api_package/data/datasources/product_api.dart';
 import 'package:fake_store_api_package/data/datasources/user_api.dart';
 import 'package:fake_store_api_package/domain/entities/cart.dart';
+import 'package:fake_store_api_package/domain/entities/login.dart';
 import 'package:fake_store_api_package/domain/entities/product.dart';
 import 'package:fake_store_api_package/domain/entities/user.dart';
 import 'package:fake_store_api_package/domain/mappers/cart_mapper.dart';
+import 'package:fake_store_api_package/domain/mappers/login_mapper.dart';
 import 'package:fake_store_api_package/domain/mappers/product_mapper.dart';
 import 'package:fake_store_api_package/domain/mappers/user_mapper.dart';
 
@@ -13,6 +16,7 @@ class FakeStoreApiPackage {
   final ProductApi _productApi = ProductApi();
   final UserApi _userApi = UserApi();
   final CartApi _cartApi = CartApi();
+  final LoginApi _loginApi = LoginApi();
 
   // PRODUCTS
   Future<Either<String, List<Product>>> getProducts() async {
@@ -81,5 +85,11 @@ class FakeStoreApiPackage {
 
   Future<Either<String, void>> deleteCart(int id) async {
     return await _cartApi.deleteCart(id);
+  }
+
+  // LOGIN
+  Future<Either<String, LoginResponse>> login(LoginRequest loginRequest) async {
+    final result = await _loginApi.login(loginRequest.toModel());
+    return result.map((model) => model.toEntity());
   }
 }

@@ -4,7 +4,7 @@ Paquete Flutter/Dart para interactuar fácilmente con la Fake Store API. Permite
 
 ## Getting started
 
-fake_store_api_package: 0.0.3
+fake_store_api_package: 0.0.4
 
 ## Usage
 
